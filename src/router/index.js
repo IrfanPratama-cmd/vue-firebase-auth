@@ -9,6 +9,23 @@ const routes = [
     name: 'home',
     component: HomeView,
     meta: {
+      requiresAuth : true,
+      title: 'Home Product'
+    }
+  },
+  {
+    path: '/detail/:id',
+    name: 'detail',
+    component: () => import( '../views/DetailView.vue'),
+    meta: {
+      requiresAuth : true
+    }
+  },
+  {
+    path: '/category/:category',
+    name: 'category',
+    component: () => import( '../views/CategoryView.vue'),
+    meta: {
       requiresAuth : true
     }
   },
@@ -21,10 +38,31 @@ const routes = [
     }
   },
   {
+    path: '/createProduct',
+    name: 'create',
+    component: () => import( '../views/CreateView.vue'),
+    meta: {
+      requiresAuth : true
+    }
+  },
+  {
+    path: '/editProduct/:id',
+    name: 'edit',
+    component: () => import( '../views/EditView.vue'),
+    meta: {
+      requiresAuth : true
+    }
+  },
+  {
     path: '/login',
     name: 'login',
     component: () => import( '../views/LoginView.vue')
-  }
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: () => import( '../views/RegisterView.vue'),
+  },
 ]
 
 const router = createRouter({
